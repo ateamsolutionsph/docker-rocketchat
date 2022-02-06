@@ -17,7 +17,7 @@ services:
      - /tmp:/tmp
     environment:
      - PORT=3000
-     - ROOT_URL=http://demohangout.ateamsolutions.co
+     - ROOT_URL=https://demohangout.ateamsolutions.co
      - MONGO_URL=mongodb://mongo:27017/rocketchat
      - MONGO_OPLOG_URL=mongodb://mongo:27017/local
     labels:
