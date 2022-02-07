@@ -12,7 +12,7 @@ An automated `docker-compose.yml` file/setup to run [Rocket.Chat](https://rocket
     cd /opt/docker/Rocket.Chat #directory in which you pulled your repo
     ```
 
-3. Copy and adjust the default environment variables from `.env.sample`: e.g. server url
+3. Copy and adjust the default environment variables from `.env.sample`: e.g. server url {ROCKETCHAT_HOST}
 
     ```shell
     cp .env.sample .env
