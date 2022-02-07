@@ -1,7 +1,9 @@
 # docker-rocketchat
 
 An automated `docker-compose.yml` file/setup to run [Rocket.Chat](https://rocket.chat) in production. Optional containers for Hubot and a complete application monitoring stack available as well.
-For documentaion on Rocket Chat itself see [Rocket.Chat Documentation](https://docs.rocket.chat)
+
+For documentation on Rocket Chat itself see [Rocket.Chat Documentation](https://docs.rocket.chat)
+
 For developer guide on Rocket Chat see [Rocket.Chat Developer](https://developer.rocket.chat)
 
 Note: The image used in this automated script is a customized fork build but this can also be applied to the mainstream version.
