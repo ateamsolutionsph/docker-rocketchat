@@ -2,7 +2,7 @@ version: '2'
 
 services:
   rocketchat:
-    image: cutarj/trtest:11132021
+    image: ateamsolutions/globatchat:11132021
     restart: unless-stopped
     command: >
       bash -c
