@@ -1,6 +1,6 @@
 # docker-rocketchat
 
-My `docker-compose.yml` file/setup to run [Rocket.Chat](https://rocket.chat) in production. Optional containers for Hubot and a complete application monitoring stack available as well.
+An automated `docker-compose.yml` file/setup to run [Rocket.Chat](https://rocket.chat) in production. Optional containers for Hubot and a complete application monitoring stack available as well.
 
 ## Installation
 
@@ -8,11 +8,11 @@ My `docker-compose.yml` file/setup to run [Rocket.Chat](https://rocket.chat) in 
 2. Clone this repository:
 
     ```shell
-    git clone https://github.com/ateamsolutionsph/docker-rocketchat /opt/docker/Rocket.Chat
-    cd /opt/docker/Rocket.Chat
+    git clone https://github.com/ateamsolutionsph/docker-rocketchat /opt/docker/Rocket.Chat #or any directory you would like to pull the files to
+    cd /opt/docker/Rocket.Chat #directory in which you pulled your repo
     ```
 
-3. Copy and adjust the default environment variables from `.env.sample`:
+3. Copy and adjust the default environment variables from `.env.sample`: e.g. server url
 
     ```shell
     cp .env.sample .env
@@ -25,15 +25,9 @@ My `docker-compose.yml` file/setup to run [Rocket.Chat](https://rocket.chat) in 
     docker-compose up -d
     ```
 
-5. Access your Rocket.Chat instance via `http://${HOST_IP}:3000`.
+5. Access your Rocket.Chat instance via `https://${ROCKETCHAT_HOST}`.
 
 ## Usage
-
-### Why port 3000? How to add SSL?
-
-Port 3000, because this project comes with a load balancer container which is exposed on port 3000. This load balancer manages the traffic between our application containers, no matter how many we scale up.
-
-In production you probably still want to use the default HTTP/HTTPS ports, right? To do that simply add your reverse proxy by choice and redirect the traffic to the _traefik_ listener. This reverse proxy can also be used to terminate your SSL connections.
 
 ### Upgrade to a new Rocket.Chat version
 
@@ -66,26 +60,6 @@ Last but not least restart _traefik_ (the load balancer) to make sure it knows a
 ```
 $ docker-compose restart traefik
 ```
-
-### Hubot
-
-#### Installation / Setup
-
-If you want to use Hubot, you can use the provided container in the `docker-compose.hubot.yml`:
-
-1. Create a new user in your Rocket.Chat instance which Hubot can use to sign in.
-2. Adjust the related environment variables in your `.env` file to match your previously created user credentials.
-3. Save the file and create the Hubot container, make sure to include _both_ the regular `docker-compose.yml` and the `docker-compose.hubot.yml` file into your command:
-
-```
-docker-compose -f docker-compose.yml -f docker-compose.hubot.yml up -d hubot
-```
-
-> Note: If you decide to use Hubot and include it's `docker-compose.hubot.yml`, make sure to use the `$ docker-compose -f docker-compose.yml -f docker-compose.hubot.yml ...` command syntax from now on for any other task, to make sure your container stack always includes all containers - including Hubot!
-
-#### Custom Hubot scripts
-
-Right now you can either use the `EXTERNAL_SCRIPTS` environment variable within the Hubot Docker container to install NPM-registered scripts or you can use the mounted `./data/hubotscripts` volume to load your local scripts.
 
 ### MongoDB
 
@@ -148,29 +122,6 @@ This message will be thrown by the application container, if you initially start
 ### `MongoError: not master and slaveOk=false`
 
 The initial database seed is probably not yet fully imported into your MongoDB. As above, wait a bit until it's processed in the background.
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch:
-
-    ```shell
-    git checkout -b feature/my-new-feature
-    ```
-
-3. Commit your changes:
-
-    ```shell
-    git commit -am 'Add some feature'
-    ```
-
-4. Push to the branch:
-
-    ```shell
-    git push origin feature/my-new-feature
-    ```
-
-5. Submit a pull request
 
 ## Requirements / Dependencies
 
