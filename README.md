@@ -4,7 +4,7 @@ An automated `docker-compose.yml` file/setup to run [Rocket.Chat](https://rocket
 
 ## Installation
 
-1. Make sure you've installed Docker including `docker-compose` support.
+1. Make sure you've installed Docker including `docker-compose` support. See [Prerequisie-README](https://github.com/ateamsolutionsph/docker-rocketchat/blob/master/Prerequisite-README.md)
 2. Clone this repository:
 
     ```shell
