@@ -10,7 +10,7 @@ Note: The image used in this automated script is a customized fork build but thi
 
 ## Installation
 
-1. Make sure you've installed Docker including `docker-compose` support. See [Prerequisie-README](https://github.com/ateamsolutionsph/docker-rocketchat/blob/master/Prerequisite-README.md)
+1. Make sure you've installed Docker including `docker-compose` support. See [Prerequisite-README](https://github.com/ateamsolutionsph/docker-rocketchat/blob/master/Prerequisite-README.md)
 2. Clone this repository:
 
     ```shell
